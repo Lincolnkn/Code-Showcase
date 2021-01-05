@@ -1,0 +1,42 @@
+Solution Strategy
+
+Steps Taken
+1. Read file line by line.
+	a. Break line into characters
+		i. Use a finite state machine to check if the current character is a letter
+			1. If yes, the character is added to the current word
+			2. If no, character is ignored.
+		ii. Add letters until a space or new line is found.
+2. 	Insert word into binary search tree alphabetically. Placing unique words into a 
+	string pool and counting duplicates.
+	a. 	As a word is processed, I use a simple alphabet compare to each word along the 
+		binary tree, character by character. If a word has the same length and characters, 
+		the count of the word is increased by 1.
+	b. 	If the word is unique the left and right indexes of the binary tree are recorded into 
+		arrays and the word is placed at the end of the string pool. Where these indexes are 
+		also recorded as start & end.
+3. 	Once the file has been read perform an in-order traversal on the binary tree indexes to 
+	sort z-a.
+	a. 	This traversal places the sorted indexes into a new array. Each index holds the position 
+		of the word in the string pool, its count, and its place in the BST.
+4. Perform a merge sort on the indexes by word count.
+	a. Using two local arrays, sort the indexes based by the word count.
+5. Output the 10 most and least common words.
+
+Data Structures Used
+- Binary Tree
+	o Used while processing each word and once entire file has been read
+	o Implemented a binary search tree to place words alphabetically
+	o Offer a great way to sort
+- Array
+	o Used to hold all data
+		▪ String pool
+		▪ Word count, counts
+		▪ Indexes for String pool, BST
+
+Standard Algorithms Used
+- In-order traversal of the binary tree
+	o Used to sort words alphabetically
+- Merge Sort
+	o Used to sort by count after the in-order traversal
+	o Merge sorts time complexity Is nLog(n) which makes it an easy choice to use for this program.
