@@ -1,0 +1,7 @@
+nVertices	nEdges
+{1..}
+label	xCor	yCor
+{..nVertices}
+{1..}
+startVertices endVertices weight
+{..nEdges}
